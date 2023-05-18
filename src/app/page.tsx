@@ -15,19 +15,21 @@ export default function Home() {
         <div className="absolute bottom-0 right-2 top-0 w-2 bg-stripes" />
 
         {/* Sign In */}
-        <a
-          href="#"
-          className="flex items-center gap-3 text-left transition-colors hover:text-gray-50"
-        >
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-400">
-            <User className="h-5 w-5 text-gray-500" />
-          </div>
+        <header>
+          <a
+            href="#"
+            className="flex items-center gap-3 text-left transition-colors hover:text-gray-50"
+          >
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-gray-400">
+              <User className="h-5 w-5 text-gray-500" />
+            </div>
 
-          <p className="max-w-[140px] text-sm leading-snug ">
-            <span className="underline">Crie sua conta</span> e salve suas
-            memórias!
-          </p>
-        </a>
+            <p className="max-w-[140px] text-sm leading-snug ">
+              <span className="underline">Crie sua conta</span> e salve suas
+              memórias!
+            </p>
+          </a>
+        </header>
 
         {/* Hero */}
         <div className="space-y-5">
@@ -53,17 +55,19 @@ export default function Home() {
         </div>
 
         {/* Copyright */}
-        <div className="text-sm leading-relaxed text-gray-200">
-          Feito com 💜 no NLW da{" "}
-          <a
-            target="_blank"
-            rel="noreferrer"
-            href="https://rocketseat.com.br"
-            className="underline hover:text-gray-100"
-          >
-            Rocketseat
-          </a>
-        </div>
+        <footer className="text-sm leading-relaxed text-gray-200">
+          <span>
+            Feito com 💜 no NLW da{" "}
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href="https://rocketseat.com.br"
+              className="underline hover:text-gray-100"
+            >
+              Rocketseat
+            </a>
+          </span>
+        </footer>
       </div>
     </main>
   );
