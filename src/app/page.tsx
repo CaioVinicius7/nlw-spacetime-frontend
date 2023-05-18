@@ -1,6 +1,8 @@
 import Image from "next/image";
 import { User } from "lucide-react";
 
+import { Copyright } from "@root/components/Copyright";
+
 import nlwLogo from "../assets/nlw-spacetime-logo.svg";
 
 export default function Home() {
@@ -54,20 +56,7 @@ export default function Home() {
           </a>
         </div>
 
-        {/* Copyright */}
-        <footer className="text-sm leading-relaxed text-gray-200">
-          <span>
-            Feito com 💜 no NLW da{" "}
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://rocketseat.com.br"
-              className="underline hover:text-gray-100"
-            >
-              Rocketseat
-            </a>
-          </span>
-        </footer>
+        <Copyright />
       </div>
 
       {/* Right */}
