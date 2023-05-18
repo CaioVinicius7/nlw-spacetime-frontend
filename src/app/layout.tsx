@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <body
-        className={`${roboto.variable} ${baiJamjuree.variable} font-sans text-gray-100`}
+        className={`${roboto.variable} ${baiJamjuree.variable} bg-slate-900 font-sans text-gray-100`}
       >
         {children}
       </body>

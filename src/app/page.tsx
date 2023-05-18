@@ -1,7 +1,11 @@
 export default function Home() {
   return (
-    <div className="h-screen bg-zinc-950 text-zinc-50">
-      <h1 className="text-4xl font-bold">Sua cápsula do tempo</h1>
-    </div>
+    <main className="grid min-h-screen grid-cols-2">
+      {/* Left */}
+      <div className="relative flex flex-col items-start justify-between overflow-hidden px-28 py-16">
+        {/* Blur */}
+        <div className="absolute right-0 top-1/2 h-[288px] w-[526px] -translate-y-1/2 translate-x-1/2 rounded-full bg-purple-700 blur-full" />
+      </div>
+    </main>
   );
 }
