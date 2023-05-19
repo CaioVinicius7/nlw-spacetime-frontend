@@ -8,12 +8,14 @@ import "./globals.css";
 
 const roboto = Roboto({
   subsets: ["latin"],
-  variable: "--font-roboto"
+  variable: "--font-roboto",
+  preload: true
 });
 const baiJamjuree = BaiJamJuree({
   subsets: ["latin"],
   weight: "700",
-  variable: "--font-bai-jamjuree"
+  variable: "--font-bai-jamjuree",
+  preload: true
 });
 
 export const metadata = {
