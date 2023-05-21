@@ -9,6 +9,8 @@ interface RegisterResponseBody {
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
 
+  const redirectTo = request.cookies.get("redirectTo")?.value;
+
   const code = searchParams.get("code");
 
   const registerResponse = await api.post<RegisterResponseBody>("/register", {
@@ -17,7 +19,7 @@ export async function GET(request: NextRequest) {
 
   const { token } = registerResponse.data;
 
-  const redirectURL = new URL("/", request.url);
+  const redirectURL = redirectTo ?? new URL("/", request.url);
 
   const cookieExpiresInSeconds = 60 * 60 * 24 * 30; // 1 month
 
