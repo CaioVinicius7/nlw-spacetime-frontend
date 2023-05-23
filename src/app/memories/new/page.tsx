@@ -32,7 +32,7 @@ export default async function NewMemory() {
               type="checkbox"
               name="isPublic"
               id="isPublic"
-              className="h4 w-4 rounded border-gray-400 bg-gray-700 text-purple-500"
+              className="h4 w-4 cursor-pointer rounded border-gray-400 bg-gray-700 text-purple-500"
             />
             Tornar memória pública
           </label>
