@@ -2,6 +2,7 @@
   "extends": ["next/core-web-vitals", "@rocketseat/eslint-config/react"],
   "plugins": ["prettier"],
   "rules": {
+    "@next/next/no-img-element": "off",
     "no-useless-constructor": "off",
     "prettier/prettier": [
       "error",
