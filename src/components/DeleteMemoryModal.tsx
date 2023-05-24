@@ -1,9 +1,31 @@
 "use client";
 
-import * as Dialog from "@radix-ui/react-dialog";
+import { useRouter } from "next/navigation";
 import { Trash2, X } from "lucide-react";
+import Cookie from "js-cookie";
+import * as Dialog from "@radix-ui/react-dialog";
 
-export function DeleteMemoryModal() {
+import { api } from "@root/lib/api";
+
+interface DeleteMemoryModalProps {
+  memoryId: string;
+}
+
+export function DeleteMemoryModal({ memoryId }: DeleteMemoryModalProps) {
+  const router = useRouter();
+
+  async function handleDeleteMemory() {
+    const token = Cookie.get("token");
+
+    await api.delete(`/memories/${memoryId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+
+    router.push("/");
+  }
+
   return (
     <Dialog.Root>
       <Dialog.Trigger className="hover:brightness-75">
@@ -31,7 +53,10 @@ export function DeleteMemoryModal() {
               Cancelar
             </Dialog.DialogClose>
 
-            <button className=" text-red-400 transition-colors hover:text-red-500">
+            <button
+              onClick={handleDeleteMemory}
+              className=" text-red-400 transition-colors hover:text-red-500"
+            >
               Excluir
             </button>
           </footer>

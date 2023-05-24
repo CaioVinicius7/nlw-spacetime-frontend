@@ -51,7 +51,7 @@ export default async function Memory({ params }: { params: PageParams }) {
           Voltar à timeline
         </Link>
 
-        <DeleteMemoryModal />
+        <DeleteMemoryModal memoryId={memory.id} />
       </header>
 
       <div className="space-y-4">
