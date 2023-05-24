@@ -7,6 +7,8 @@ import { ChevronLeft } from "lucide-react";
 
 import { api } from "@root/lib/api";
 
+import { DeleteMemoryModal } from "@root/components/DeleteMemoryModal";
+
 interface PageParams {
   id: string;
 }
@@ -40,13 +42,17 @@ export default async function Memory({ params }: { params: PageParams }) {
 
   return (
     <section className="flex flex-1 flex-col gap-4 p-16">
-      <Link
-        href="/"
-        className="flex w-fit items-center gap-1  text-sm text-gray-200 hover:text-gray-100"
-      >
-        <ChevronLeft className="h-4 w-4" />
-        Voltar à timeline
-      </Link>
+      <header className="flex items-center justify-between">
+        <Link
+          href="/"
+          className="flex w-fit items-center gap-1  text-sm text-gray-200 hover:text-gray-100"
+        >
+          <ChevronLeft className="h-4 w-4" />
+          Voltar à timeline
+        </Link>
+
+        <DeleteMemoryModal />
+      </header>
 
       <div className="space-y-4">
         <time className=" flex items-center gap-2 text-xl text-gray-100 before:h-px before:w-5 before:bg-gray-50">
