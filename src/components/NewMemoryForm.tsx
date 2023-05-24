@@ -2,7 +2,7 @@
 
 import { FormEvent } from "react";
 import { useRouter } from "next/navigation";
-import { Camera } from "lucide-react";
+import { Calendar, Camera } from "lucide-react";
 import Cookie from "js-cookie";
 
 import { api } from "@root/lib/api";
@@ -33,12 +33,15 @@ export function NewMemoryForm() {
 
     const token = Cookie.get("token");
 
+    const date = String(formData.get("date"));
+
     await api.post(
       "/memories",
       {
         coverUrl,
         content: formData.get("content"),
-        isPublic: formData.get("isPublic")
+        isPublic: formData.get("isPublic"),
+        date: new Date(date)
       },
       {
         headers: {
@@ -72,6 +75,20 @@ export function NewMemoryForm() {
             className="h4 w-4 cursor-pointer rounded border-gray-400 bg-gray-700 text-purple-500"
           />
           Tornar memória pública
+        </label>
+
+        <label
+          htmlFor="date"
+          className="flex items-center gap-1.5 text-gray-200"
+        >
+          <Calendar className="h-4 w-4" />
+          Data da memória:
+          <input
+            type="date"
+            name="date"
+            id="date"
+            className="h-8 w-[86px] appearance-none border-0 border-b border-gray-400 bg-transparent p-0 text-sm text-gray-200 focus:border-b-gray-200 focus:ring-0"
+          />
         </label>
       </div>
 
