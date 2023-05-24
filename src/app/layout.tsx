@@ -5,6 +5,8 @@ import {
 } from "next/font/google";
 import { cookies } from "next/headers";
 
+import "@root/lib/dayjs";
+
 import { Blur } from "@root/components/Blur";
 import { Stripes } from "@root/components/Stripes";
 import { Profile } from "@root/components/Profile";
