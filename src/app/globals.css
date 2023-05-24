@@ -12,3 +12,26 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   display: none;
   -webkit-appearance: none;
 }
+
+*::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #56565a;
+  border-radius: 8px;
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: #0f172a;
+}
+
+*::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+*::-webkit-scrollbar-corner {
+  background: transparent;
+}
