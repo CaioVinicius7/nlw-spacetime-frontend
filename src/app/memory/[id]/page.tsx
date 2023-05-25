@@ -44,16 +44,17 @@ export default async function Memory({ params }: { params: PageParams }) {
   const { memory } = response.data;
 
   const isMemoryOwner = sub === memory.userId;
+  const redirectUrl = isMemoryOwner ? `/` : `/user/${memory.userId}/memories`;
 
   return (
     <section className="flex flex-1 flex-col gap-4 p-16">
       <header className="flex items-center justify-between">
         <Link
-          href="/"
+          href={redirectUrl}
           className="flex w-fit items-center gap-1  text-sm text-gray-200 hover:text-gray-100"
         >
           <ChevronLeft className="h-4 w-4" />
-          Voltar à timeline
+          {isMemoryOwner ? "Voltar à timeline" : "voltar"}
         </Link>
 
         {isMemoryOwner && <DeleteMemoryModal memoryId={memory.id} />}
