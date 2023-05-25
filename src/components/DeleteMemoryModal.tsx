@@ -33,9 +33,9 @@ export function DeleteMemoryModal({ memoryId }: DeleteMemoryModalProps) {
       </Dialog.Trigger>
 
       <Dialog.Portal>
-        <Dialog.Overlay className="fixed inset-0 bg-black/25" />
+        <Dialog.Overlay className="fixed inset-0 bg-black/50" />
 
-        <Dialog.Content className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  rounded bg-gray-600 px-6 py-6">
+        <Dialog.Content className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2  rounded bg-gray-500 px-6 pb-6 pt-8">
           <Dialog.Close className="absolute right-3 top-3 hover:brightness-75">
             <X className="h-5 w-5" />
           </Dialog.Close>
@@ -48,7 +48,7 @@ export function DeleteMemoryModal({ memoryId }: DeleteMemoryModalProps) {
             Após a exclusão os dados da memória não poderão ser recuperados.
           </Dialog.Description>
 
-          <footer className="mt-6 flex items-center justify-end gap-3">
+          <footer className="mt-12 flex items-center justify-end gap-3">
             <Dialog.DialogClose className="transition-colors hover:text-gray-200">
               Cancelar
             </Dialog.DialogClose>
