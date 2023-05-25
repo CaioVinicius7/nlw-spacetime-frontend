@@ -43,7 +43,7 @@ export default async function Memory({ params }: { params: PageParams }) {
 
   const { memory } = response.data;
 
-  const isMemoryOwner = sub === memory.id;
+  const isMemoryOwner = sub === memory.userId;
 
   return (
     <section className="flex flex-1 flex-col gap-4 p-16">
