@@ -6,6 +6,7 @@ import { redirect } from "next/navigation";
 import { ChevronLeft } from "lucide-react";
 
 import { api } from "@root/lib/api";
+import { getUser } from "@root/lib/auth";
 
 import { DeleteMemoryModal } from "@root/components/DeleteMemoryModal";
 
@@ -20,10 +21,12 @@ interface GetMemoryResponse {
     content: string;
     date: Date;
     createdAt: Date;
+    userId: string;
   };
 }
 
 export default async function Memory({ params }: { params: PageParams }) {
+  const { sub } = getUser();
   const isAuthenticated = cookies().has("token");
 
   if (!isAuthenticated) {
@@ -40,6 +43,8 @@ export default async function Memory({ params }: { params: PageParams }) {
 
   const { memory } = response.data;
 
+  const isMemoryOwner = sub === memory.id;
+
   return (
     <section className="flex flex-1 flex-col gap-4 p-16">
       <header className="flex items-center justify-between">
@@ -51,7 +56,7 @@ export default async function Memory({ params }: { params: PageParams }) {
           Voltar à timeline
         </Link>
 
-        <DeleteMemoryModal memoryId={memory.id} />
+        {isMemoryOwner && <DeleteMemoryModal memoryId={memory.id} />}
       </header>
 
       <div className="space-y-4">
