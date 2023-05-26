@@ -2,11 +2,13 @@ import Image from "next/image";
 
 import { getUser } from "@root/lib/auth";
 
+import { ShareMemoriesButton } from "./ShareMemoriesButton";
+
 export function Profile() {
-  const { name, avatarUrl } = getUser();
+  const { name, avatarUrl, sub } = getUser();
 
   return (
-    <header>
+    <header className="flex w-full items-center justify-between">
       <div className="flex items-center gap-3 text-left">
         <Image
           src={avatarUrl}
@@ -26,6 +28,8 @@ export function Profile() {
           </a>
         </p>
       </div>
+
+      <ShareMemoriesButton userId={sub} />
     </header>
   );
 }
