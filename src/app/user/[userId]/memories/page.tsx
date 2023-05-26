@@ -17,13 +17,23 @@ interface Memory {
   createdAt: Date;
 }
 
-export default async function UserMemories({ params }: { params: PageParams }) {
-  const response = await api.get<Memory[]>(`user/${params.userId}/memories`);
+interface GetUserMemoriesResponse {
+  user: {
+    name: string;
+    avatarUrl: string;
+  };
+  memories: Memory[];
+}
 
-  const memories = response.data;
+export default async function UserMemories({ params }: { params: PageParams }) {
+  const response = await api.get<GetUserMemoriesResponse>(
+    `user/${params.userId}/memories`
+  );
+
+  const { user, memories } = response.data;
 
   return (
-    <section className="flex flex-1 flex-col gap-4 p-8">
+    <section className="flex flex-1 flex-col gap-8 p-8">
       <header className="flex items-center justify-between">
         <Link
           href="/"
@@ -33,6 +43,21 @@ export default async function UserMemories({ params }: { params: PageParams }) {
           Voltar à timeline
         </Link>
       </header>
+
+      <div className="mx-auto flex flex-col items-center gap-3 text-left">
+        <Image
+          src={user.avatarUrl}
+          width={40}
+          height={40}
+          quality={100}
+          alt=""
+          className="h-16 w-16 rounded-full"
+        />
+
+        <h2 className="text-center text-lg leading-tight">
+          Memórias de <strong className="block">{user.name}</strong>
+        </h2>
+      </div>
 
       {memories.map((memory) => (
         <section key={memory.id} className="space-y-4">
