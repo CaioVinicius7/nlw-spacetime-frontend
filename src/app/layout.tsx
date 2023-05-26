@@ -41,14 +41,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <body
-        className={`${roboto.variable} ${baiJamjuree.variable} overflow-hidden bg-slate-900 font-sans  text-gray-100`}
+        className={`${roboto.variable} ${baiJamjuree.variable} overflow-hidden bg-slate-900 font-sans text-gray-100`}
       >
         <main className="flex min-h-screen flex-col md:grid md:grid-cols-2">
           {/* Mobile Header */}
           <Header />
 
           {/* Left */}
-          <div className="relative hidden flex-col items-start justify-between overflow-hidden border-r border-white/10 bg-[url(../assets/bg-stars.svg)] bg-cover px-28 py-16 md:flex">
+          <div className="relative hidden flex-col items-start justify-between overflow-hidden border-r border-white/10 bg-[url(../assets/bg-stars.svg)] bg-cover px-4 py-16 md:flex md:px-8 xl:px-28">
             <Blur />
 
             <Stripes />
