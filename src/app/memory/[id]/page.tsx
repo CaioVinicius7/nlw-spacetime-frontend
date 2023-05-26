@@ -47,7 +47,7 @@ export default async function Memory({ params }: { params: PageParams }) {
   const redirectUrl = isMemoryOwner ? `/` : `/user/${memory.userId}/memories`;
 
   return (
-    <section className="flex flex-1 flex-col gap-4 p-16">
+    <section className="flex flex-1 flex-col gap-4 p-4 md:p-16">
       <header className="flex items-center justify-between">
         <Link
           href={redirectUrl}

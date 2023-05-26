@@ -23,11 +23,11 @@ export default async function UserMemories({ params }: { params: PageParams }) {
   const memories = response.data;
 
   return (
-    <section className="flex flex-1 flex-col gap-4 p-16">
-      <header className="-ml-10 flex items-center justify-between">
+    <section className="flex flex-1 flex-col gap-4 p-8">
+      <header className="flex items-center justify-between">
         <Link
           href="/"
-          className="flex w-fit items-center gap-1  text-sm text-gray-200 hover:text-gray-100"
+          className="flex w-fit items-center gap-1 text-sm text-gray-200 hover:text-gray-100"
         >
           <ChevronLeft className="h-4 w-4" />
           Voltar à timeline
@@ -35,7 +35,7 @@ export default async function UserMemories({ params }: { params: PageParams }) {
       </header>
 
       {memories.map((memory) => (
-        <section key={memory.id} className="-ml-8 space-y-4">
+        <section key={memory.id} className="space-y-4">
           <time className="-ml-8 flex items-center gap-2 text-sm text-gray-100 before:h-px before:w-5 before:bg-gray-50">
             {dayjs(memory.date).add(3, "hour").format("D[ de ]MMMM[, ]YYYY")}
           </time>

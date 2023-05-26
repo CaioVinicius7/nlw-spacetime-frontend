@@ -13,6 +13,7 @@ import { Profile } from "@root/components/Profile";
 import { SignIn } from "@root/components/SignIn";
 import { Hero } from "@root/components/Hero";
 import { Copyright } from "@root/components/Copyright";
+import { Header } from "@root/components/Header";
 
 import "./globals.css";
 
@@ -40,11 +41,14 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="pt-BR">
       <body
-        className={`${roboto.variable} ${baiJamjuree.variable} bg-slate-900 font-sans text-gray-100`}
+        className={`${roboto.variable} ${baiJamjuree.variable} overflow-hidden bg-slate-900 font-sans  text-gray-100`}
       >
-        <main className="grid min-h-screen grid-cols-2">
+        <main className="flex min-h-screen flex-col md:grid md:grid-cols-2">
+          {/* Mobile Header */}
+          <Header />
+
           {/* Left */}
-          <div className="relative flex flex-col items-start justify-between overflow-hidden border-r border-white/10 bg-[url(../assets/bg-stars.svg)] bg-cover px-28 py-16 ">
+          <div className="relative hidden flex-col items-start justify-between overflow-hidden border-r border-white/10 bg-[url(../assets/bg-stars.svg)] bg-cover px-28 py-16 md:flex">
             <Blur />
 
             <Stripes />
@@ -57,7 +61,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
           </div>
 
           {/* Right */}
-          <div className="flex max-h-screen flex-col overflow-y-auto bg-[url(../assets/bg-stars.svg)] bg-cover">
+          <div className="flex max-h-screen w-screen flex-1 flex-col overflow-y-auto bg-[url(../assets/bg-stars.svg)] bg-cover md:w-auto">
             {children}
           </div>
         </main>
